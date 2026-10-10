@@ -1,13 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TankController : MonoBehaviour
+public class MoveMovement: MonoBehaviour
 {
     public Animator animator;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotateSpeed = 100f;
+    Rigidbody rb;
+
 
     void Reset() { animator = GetComponentInChildren<Animator>(); }
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
 
     void Update()
     {
